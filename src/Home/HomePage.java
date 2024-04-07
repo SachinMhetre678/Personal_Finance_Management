@@ -5,8 +5,6 @@
 package Home;
 
 import Login.Login;
-import java.awt.Color;
-import javax.swing.UIManager;
 
 /**
  *
@@ -31,12 +29,6 @@ public class HomePage extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -46,9 +38,47 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Home");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+
+        jTabbedPane1.addTab("Home", jPanel2);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("Accounts");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+
+        jTabbedPane1.addTab("Accounts", jPanel3);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setText("Incomes");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+
+        jTabbedPane1.addTab("Incomes", jPanel4);
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setText("Expenses");
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+
+        jTabbedPane1.addTab("Expenses", jPanel5);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 860, 490));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,38 +181,6 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 80, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 60));
-
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Home");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jTabbedPane1.addTab("Home", jPanel2);
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("Accounts");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
-
-        jTabbedPane1.addTab("Accounts", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setText("Incomes");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-
-        jTabbedPane1.addTab("Incomes", jPanel4);
-
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setText("Expenses");
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
-
-        jTabbedPane1.addTab("Expenses", jPanel5);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 860, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
