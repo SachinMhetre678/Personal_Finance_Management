@@ -52,8 +52,6 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Programing Languages\\Java\\PersonalFinanceManagement\\src\\Icon\\logo.png")); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Finance Mangement");
