@@ -1,0 +1,34 @@
+# Compiled class files
+*.class
+
+# Ignore the build directory
+/build/
+
+# Ignore IDE-specific files (if applicable)
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+
+# macOS metadata files
+.DS_Store
+
+# Compiled Java bytecode
+*.jar
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Ignore all files in logs directory
+logs/*
+
+# Ignore all files in objects directory
+.objects/*
+
+# Ignore all files in the target directory (if applicable)
+target/

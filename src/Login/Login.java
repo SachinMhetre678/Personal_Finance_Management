@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
+import Home.HomePage;
 
 public class Login extends javax.swing.JFrame {
 
@@ -41,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         Right.setBackground(new java.awt.Color(0, 102, 102));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Programing Languages\\Java\\PersonalFinanceManagement\\src\\Icon\\logo.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logo.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,20 +202,26 @@ public class Login extends javax.swing.JFrame {
         try{
            //open connection
            Class.forName("com.mysql.cj.jdbc.Driver");
-           con =DriverManager.getConnection("jdbc:mysql://localhost:3306/personalfinancemanagement","root","password");
+           con =DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest","root","password");
            Statement stmt = con.createStatement();
            rs = stmt.executeQuery("select * from user where username = '"+id+"'and password = '"+pass+"'");
            if(rs.next())
            {
                JOptionPane.showMessageDialog(null,"Welcome " + id + " to Finance Management \n You have Successfully logged in ");
+                       HomePage HomePageFrame = new HomePage();
+                       HomePageFrame.setVisible(true);
+                       HomePageFrame.pack();
+                       HomePageFrame.setLocationRelativeTo(null); 
+                       this.dispose();
            }
            else
             {
             JOptionPane.showMessageDialog(rootPane, "Login Unsuccessful!!");
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane,"Wrong credentials");
+            JOptionPane.showMessageDialog(rootPane,e);
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
