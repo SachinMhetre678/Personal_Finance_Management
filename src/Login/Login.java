@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 import Home.HomePage;
-
+import Database.UserSession;
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -202,12 +202,14 @@ public class Login extends javax.swing.JFrame {
         try{
            //open connection
            Class.forName("com.mysql.cj.jdbc.Driver");
-           con =DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest","root","password");
+           con =DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest","Onkar","Prem@1234");
            Statement stmt = con.createStatement();
            rs = stmt.executeQuery("select * from user where username = '"+id+"'and password = '"+pass+"'");
            if(rs.next())
            {
                JOptionPane.showMessageDialog(null,"Welcome " + id + " to Finance Management \n You have Successfully logged in ");
+                       UserSession s = new UserSession();
+                       s.userId = rs.getInt("user_id");
                        HomePage HomePageFrame = new HomePage();
                        HomePageFrame.setVisible(true);
                        HomePageFrame.pack();
