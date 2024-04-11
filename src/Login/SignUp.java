@@ -6,8 +6,11 @@ package Login;
 import javax.swing.*; 
 import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.ResultSet;
+
+import Database.DatabaseManager;
 
 public class SignUp extends javax.swing.JFrame {
     public SignUp() {
@@ -43,8 +46,6 @@ public class SignUp extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Programing Languages\\Java\\PersonalFinanceManagement\\src\\Icon\\logo.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,25 +211,35 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-        
-           
-        try{
-             Class.forName("com.mysql.cj.jdbc.Driver");
-             con =DriverManager.getConnection("jdbc:mysql://localhost:3306/personalfinancemanagement","root","password");
-             Statement stmt = con.createStatement();
-             String name1 = name.getText();
-             String username1 = username.getText();
-             String password1 = password.getText();
-             String query = "INSERT INTO user(name,username,password)"+"VALUES('"+name1+"','"+username1+"','"+password1+"')";
-             stmt.execute(query);
-             name.setText("");
-             username.setText("");
-             password.setText("");
-             JOptionPane.showMessageDialog(null,"Accout sccuessfully created !");
-        }catch(Exception e){
-            System.out.println("Error ! "+e.getMessage());
-        }
+
+        try {
+            DatabaseManager.connect();
+
+        // Assuming name, username, and password are JTextField or similar components
+            String name1 = name.getText();
+            String username1 = username.getText();
+            String password1 = password.getText();
+
+            String query = "INSERT INTO user(name, username, password) VALUES (?, ?, ?)";
+            PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
+            pstmt.setString(1, name1);
+            pstmt.setString(2, username1);
+            pstmt.setString(3, password1);
+
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+            // Insertion successful
+            name.setText("");
+            username.setText("");
+            password.setText("");
+            JOptionPane.showMessageDialog(null, "Account successfully created!");
+            }
+        } catch (SQLException ex) {
+        // Handle exceptions
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error occurred while creating account: " + ex.getMessage());
+    }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
