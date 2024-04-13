@@ -49,7 +49,18 @@ public class HomePage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -177,8 +188,51 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Home");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        jPanel7.setBackground(new java.awt.Color(234, 216, 192));
+        jPanel7.setLayout(null);
+        jPanel7.add(jTextField2);
+        jTextField2.setBounds(30, 90, 130, 30);
+
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel9.setText("Current Balance");
+        jPanel7.add(jLabel9);
+        jLabel9.setBounds(20, 50, 150, 40);
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 140));
+
+        jPanel6.setBackground(new java.awt.Color(253, 153, 153));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
+
+        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel10.setText("Liabilites");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 190, 140));
+
+        jPanel8.setBackground(new java.awt.Color(188, 127, 205));
+        jPanel8.setLayout(null);
+        jPanel8.add(jTextField4);
+        jTextField4.setBounds(30, 90, 130, 30);
+
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel11.setText("Monthly Income");
+        jPanel8.add(jLabel11);
+        jLabel11.setBounds(20, 50, 150, 40);
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 190, 140));
+
+        jPanel9.setBackground(new java.awt.Color(116, 140, 241));
+        jPanel9.setLayout(null);
+        jPanel9.add(jTextField5);
+        jTextField5.setBounds(30, 90, 130, 30);
+
+        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel12.setText("Month's Expense");
+        jPanel9.add(jLabel12);
+        jLabel12.setBounds(20, 50, 160, 40);
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 190, 140));
 
         jTabbedPane1.addTab("Home", jPanel2);
 
@@ -561,7 +615,9 @@ private void populateTable() {
     private javax.swing.JButton deleteAccount;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -569,16 +625,25 @@ private void populateTable() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
