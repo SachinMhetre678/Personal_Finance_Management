@@ -5,29 +5,18 @@
 package Home;
 
 import Login.Login;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import Database.UserSession;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo
  */
 public class HomePage extends javax.swing.JFrame {
-    UserSession s;
+
     /**
      * Creates new form HomePage
      */
     public HomePage() {
-        this.s = new UserSession();
         initComponents();
-        addAccountComboBox();
-        populateTable();
     }
 
     /**
@@ -48,26 +37,31 @@ public class HomePage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        deleteAccount = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        createAccount = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setTitle("Dashboard");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -176,87 +170,75 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Home");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        jPanel6.setBackground(new java.awt.Color(253, 153, 153));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 30));
+
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel5.setText("Liabilites");
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Programing Languages\\Java\\test\\src\\Icon\\liabilites.png")); // NOI18N
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 60, 50));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 190, 140));
+
+        jPanel7.setBackground(new java.awt.Color(234, 216, 192));
+        jPanel7.setLayout(null);
+        jPanel7.add(jTextField1);
+        jTextField1.setBounds(30, 90, 130, 30);
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel1.setText("Current Balance");
+        jPanel7.add(jLabel1);
+        jLabel1.setBounds(20, 50, 150, 40);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel6.setText("₹");
+        jPanel7.add(jLabel6);
+        jLabel6.setBounds(80, 20, 30, 30);
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 140));
+
+        jPanel8.setBackground(new java.awt.Color(188, 127, 205));
+        jPanel8.setLayout(null);
+        jPanel8.add(jTextField3);
+        jTextField3.setBounds(30, 90, 130, 30);
+
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel7.setText("Monthly Income");
+        jPanel8.add(jLabel7);
+        jLabel7.setBounds(20, 50, 150, 40);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/income.png"))); // NOI18N
+        jPanel8.add(jLabel8);
+        jLabel8.setBounds(60, 10, 70, 50);
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 190, 140));
+
+        jPanel9.setBackground(new java.awt.Color(116, 140, 241));
+        jPanel9.setLayout(null);
+        jPanel9.add(jTextField4);
+        jTextField4.setBounds(30, 90, 130, 30);
+
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel9.setText("Month's Expense");
+        jPanel9.add(jLabel9);
+        jLabel9.setBounds(20, 50, 160, 40);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/expense.png"))); // NOI18N
+        jPanel9.add(jLabel10);
+        jLabel10.setBounds(60, 20, 60, 40);
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 190, 140));
 
         jTabbedPane1.addTab("Home", jPanel2);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Delete Account");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, 30));
-
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Account Name", "Liabilities", "Current Balance"
-            }
-        ));
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setRowHeight(24);
-        jTable1.setRowSelectionAllowed(false);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setShowGrid(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 770, 120));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Accounts");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 30));
-
-        deleteAccount.setBackground(new java.awt.Color(55, 98, 217));
-        deleteAccount.setForeground(new java.awt.Color(255, 255, 255));
-        deleteAccount.setText("Delete");
-        deleteAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteAccountActionPerformed(evt);
-            }
-        });
-        jPanel3.add(deleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, 30));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 150, 30));
-
-        jLabel2.setText("Name");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, 30));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Create Account");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
-
-        jLabel8.setText("Name");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 150, 30));
-
-        createAccount.setBackground(new java.awt.Color(55, 98, 217));
-        createAccount.setForeground(new java.awt.Color(255, 255, 255));
-        createAccount.setText("Create");
-        createAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAccountActionPerformed(evt);
-            }
-        });
-        jPanel3.add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 30));
+        jLabel2.setText("Accounts");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         jTabbedPane1.addTab("Accounts", jPanel3);
 
@@ -315,7 +297,6 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jToggleButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton3MouseClicked
         // TODO add your handling code here:
-        System.out.println("UserID: "+s.userId);
         jToggleButton3.setBackground(new java.awt.Color(0,68,68));
         jToggleButton2.setSelected(false);
         jToggleButton4.setSelected(false);
@@ -379,179 +360,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void deleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountActionPerformed
-        // TODO add your handling code here:
-// Retrieve the selected account name from jComboBox1
-    String accountName = (String) jComboBox1.getSelectedItem();
-
-    if (accountName != null && accountName!= "--selected--") {
-        try {
-            // Establish database connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest", "Onkar", "Prem@1234");
-
-            // Prepare SQL statement to delete the account
-            String query = "DELETE FROM account WHERE account_type = ? AND user_id = ?";
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, accountName);
-            pstmt.setInt(2, s.userId);
-
-            // Execute the SQL statement
-            int rowsDeleted = pstmt.executeUpdate();
-            if (rowsDeleted > 0) {
-                JOptionPane.showMessageDialog(null, "Account deleted successfully!");
-                jComboBox1.removeItem(accountName);
-                populateTable();
-            } else {
-                JOptionPane.showMessageDialog(null, "Failed to delete account.");
-            }
-
-            // Close resources
-            pstmt.close();
-            con.close();
-        } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    } else {
-        JOptionPane.showMessageDialog(null, "Please select an account to delete.");
-    }
-    }//GEN-LAST:event_deleteAccountActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
-        // TODO add your handling code here:
-String accountName = jTextField1.getText().trim(); // Trim the input to remove leading/trailing spaces
-if (!accountName.isEmpty()) { // Check if the account name is not empty
-    try {
-        // Establish database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest", "Onkar", "Prem@1234");
-
-        // Prepare SQL statement to check for existing account with the same name
-        String checkQuery = "SELECT * FROM account WHERE account_type = ?";
-        PreparedStatement checkStmt = con.prepareStatement(checkQuery);
-        checkStmt.setString(1, accountName);
-
-        // Execute the SQL query to check for existing account
-        ResultSet resultSet = checkStmt.executeQuery();
-
-        // Check if there are any rows returned (i.e., if an account with the same name already exists)
-        if (resultSet.next()) {
-            JOptionPane.showMessageDialog(null, "An account with the same name already exists.");
-        } else {
-            // Prepare SQL statement to insert new account
-            String insertQuery = "INSERT INTO account(account_type, balance, user_id, liabilities) VALUES (?, ?, ?, ?)";
-            PreparedStatement pstmt = con.prepareStatement(insertQuery);
-            pstmt.setString(1, accountName);
-            pstmt.setDouble(2, 0); // Initial balance set to 0
-            pstmt.setDouble(4, 0); // Initial liability set to 0
-            pstmt.setInt(3, s.userId); // Assuming userId is obtained after user login
-
-            // Execute the SQL statement to insert the new account
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
-                JOptionPane.showMessageDialog(null, "Account created successfully!");
-                jTextField1.setText(""); // Clear the jTextField1 after successful account creation
-                addAccountComboBox();
-                populateTable();
-            } else {
-                JOptionPane.showMessageDialog(null, "Failed to create account.");
-            }
-
-            // Close resources
-            pstmt.close();
-        }
-
-        // Close resources
-        resultSet.close();
-        checkStmt.close();
-        con.close();
-    } catch (ClassNotFoundException | SQLException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error occurred while creating account: " + ex.getMessage());
-    }
-} else {
-    JOptionPane.showMessageDialog(null, "Please enter an account name.");
-}
-
-    }//GEN-LAST:event_createAccountActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-     
-    private void addAccountComboBox() {
-       try {
-    // Establish database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest", "Onkar", "Prem@1234");
-
-        // Prepare SQL statement to select account names for the current user
-        String query = "SELECT account_type FROM account WHERE user_id = ?";
-        PreparedStatement pstmt = con.prepareStatement(query);
-        pstmt.setInt(1, s.userId); // Assuming userId is obtained after user login
-
-        // Execute the SQL query
-        ResultSet rs = pstmt.executeQuery();
-
-        // Clear existing items in the jComboBox1
-        jComboBox1.removeAllItems();
-        jComboBox1.addItem("--select--");
-        // Add account names from the ResultSet to jComboBox1
-        while (rs.next()) {
-            String accountName = rs.getString("account_type");
-            jComboBox1.addItem(accountName);
-        }
-
-        // Close resources
-        rs.close();
-        pstmt.close();
-        con.close();
-    } catch (ClassNotFoundException | SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }
-    }
-private void populateTable() {
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // Clear previous data from the table
-
-    try {
-        // Establish database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest", "Onkar", "Prem@1234");
-
-        // Prepare SQL statement to select data from the database
-        String query = "SELECT account_type, balance, liabilities FROM account WHERE user_id = ?";
-        PreparedStatement pstmt = con.prepareStatement(query);
-        pstmt.setInt(1, s.userId); // Assuming userId is obtained after user login
-
-        // Execute the SQL query
-        ResultSet rs = pstmt.executeQuery();
-
-        // Iterate over the ResultSet and add data to the table model
-        while (rs.next()) {
-            String accountName = rs.getString("account_type");
-            double liabilities = rs.getDouble("liabilities");
-            double currentBalance = rs.getDouble("balance");
-
-            // Add a row to the table model
-            model.addRow(new Object[]{accountName, liabilities, currentBalance});
-        }
-
-        // Close resources
-        rs.close();
-        pstmt.close();
-        con.close();
-    } catch (ClassNotFoundException | SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
-
-
+                                           
     /**
      * @param args the command line arguments
      */
@@ -578,6 +387,7 @@ private void populateTable() {
             java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -587,11 +397,10 @@ private void populateTable() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createAccount;
-    private javax.swing.JButton deleteAccount;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -599,16 +408,22 @@ private void populateTable() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
