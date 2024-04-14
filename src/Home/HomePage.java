@@ -48,7 +48,7 @@ public class HomePage extends javax.swing.JFrame {
         jToggleButton5 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        Home_tab = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -61,7 +61,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        Account_tab = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -73,10 +73,41 @@ public class HomePage extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         createAccount = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        Income_tab = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel24 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        Expense = new javax.swing.JPanel();
+        Expense_Tab = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -186,7 +217,7 @@ public class HomePage extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Home_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(234, 216, 192));
         jPanel7.setLayout(null);
@@ -198,7 +229,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel7.add(jLabel9);
         jLabel9.setBounds(20, 50, 150, 40);
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 140));
+        Home_tab.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 140));
 
         jPanel6.setBackground(new java.awt.Color(253, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -208,7 +239,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel10.setText("Liabilites");
         jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 190, 140));
+        Home_tab.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 190, 140));
 
         jPanel8.setBackground(new java.awt.Color(188, 127, 205));
         jPanel8.setLayout(null);
@@ -220,7 +251,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel8.add(jLabel11);
         jLabel11.setBounds(20, 50, 150, 40);
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 190, 140));
+        Home_tab.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 190, 140));
 
         jPanel9.setBackground(new java.awt.Color(116, 140, 241));
         jPanel9.setLayout(null);
@@ -232,15 +263,15 @@ public class HomePage extends javax.swing.JFrame {
         jPanel9.add(jLabel12);
         jLabel12.setBounds(20, 50, 160, 40);
 
-        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 190, 140));
+        Home_tab.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 190, 140));
 
-        jTabbedPane1.addTab("Home", jPanel2);
+        jTabbedPane1.addTab("Home", Home_tab);
 
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Account_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Delete Account");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, 30));
+        Account_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, 30));
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -262,11 +293,11 @@ public class HomePage extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 770, 120));
+        Account_tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 770, 120));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Accounts");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 30));
+        Account_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 30));
 
         deleteAccount.setBackground(new java.awt.Color(55, 98, 217));
         deleteAccount.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,24 +307,24 @@ public class HomePage extends javax.swing.JFrame {
                 deleteAccountActionPerformed(evt);
             }
         });
-        jPanel3.add(deleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, 30));
+        Account_tab.add(deleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, 30));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 150, 30));
+        Account_tab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 150, 30));
 
         jLabel2.setText("Name");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, 30));
+        Account_tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Create Account");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
+        Account_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
 
         jLabel8.setText("Name");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
+        Account_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -301,7 +332,7 @@ public class HomePage extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 150, 30));
+        Account_tab.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 150, 30));
 
         createAccount.setBackground(new java.awt.Color(55, 98, 217));
         createAccount.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,23 +342,142 @@ public class HomePage extends javax.swing.JFrame {
                 createAccountActionPerformed(evt);
             }
         });
-        jPanel3.add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 30));
+        Account_tab.add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 30));
 
-        jTabbedPane1.addTab("Accounts", jPanel3);
+        jTabbedPane1.addTab("Accounts", Account_tab);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Income_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Incomes");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        jPanel12.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.addTab("Incomes", jPanel4);
+        jLabel21.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        jLabel21.setText("Income");
+        jPanel12.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 50));
 
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Income_tab.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 860, 50));
 
-        jLabel4.setText("Expenses");
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel23.setText("Date");
+        Income_tab.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 60, 20));
+        Income_tab.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 210, -1));
 
-        jTabbedPane1.addTab("Expenses", jPanel5);
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel24.setText("Source");
+        Income_tab.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--", "Saving Account", "Bank Account", "Salary Account", "Item 4" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+        Income_tab.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 210, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setText("Account");
+        Income_tab.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
+        Income_tab.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 210, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel26.setText("Amount");
+        Income_tab.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--", "Saving Account", "Bank Account", "Salary Account", "Item 4" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        Income_tab.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 210, -1));
+
+        jButton5.setText("Add");
+        Income_tab.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 80, 30));
+
+        jButton6.setText("Reset");
+        Income_tab.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 80, 30));
+
+        jTabbedPane1.addTab("Incomes", Income_tab);
+
+        Expense.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Expense_Tab.setBackground(new java.awt.Color(255, 255, 255));
+        Expense_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        jLabel13.setText("Add Expenses");
+        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 50));
+
+        Expense_Tab.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 860, 50));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("Date");
+        Expense_Tab.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 60, 20));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setText("Account");
+        Expense_Tab.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--", "Saving Account", "Bank Account", "Salary Account", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        Expense_Tab.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 210, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel16.setText("Expenses");
+        Expense_Tab.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 110, 30));
+
+        jPanel11.setBackground(new java.awt.Color(241, 241, 237));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setText("Category");
+        jPanel11.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 110, 30));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel18.setText("Amount");
+        jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 100, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setText("Remark");
+        jPanel11.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 80, 30));
+
+        Expense_Tab.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 850, 30));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Housing & Utilities", "Food & Dining", "Transportation", "Health & Wellness", "Personal Care", "Entertainment & Recreation", "Education & Learning", "Insurance", "Family & Kids", "Travel" }));
+        Expense_Tab.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 30));
+        Expense_Tab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 150, 30));
+        Expense_Tab.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 150, 30));
+
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setText("Add New");
+        Expense_Tab.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 90, 30));
+        Expense_Tab.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 100, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setText("Total Amount");
+        Expense_Tab.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 110, 30));
+
+        jButton3.setText("Add");
+        Expense_Tab.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 80, 30));
+
+        jButton4.setText("Reset");
+        Expense_Tab.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 80, 30));
+        Expense_Tab.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 210, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setText("Date");
+        Expense_Tab.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 60, 20));
+
+        Expense.add(Expense_Tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
+
+        jTabbedPane1.addTab("Expenses", Expense);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 860, 490));
 
@@ -520,6 +670,18 @@ public class HomePage extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
      
     private void addAccountComboBox() {
         try {
@@ -611,26 +773,53 @@ private void populateTable() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Account_tab;
+    private javax.swing.JPanel Expense;
+    private javax.swing.JPanel Expense_Tab;
+    private javax.swing.JPanel Home_tab;
+    private javax.swing.JPanel Income_tab;
     private javax.swing.JButton createAccount;
     private javax.swing.JButton deleteAccount;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -644,6 +833,10 @@ private void populateTable() {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
