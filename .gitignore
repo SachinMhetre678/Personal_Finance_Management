@@ -16,3 +16,6 @@
 # Ignore manifest file
 manifest.mf
 
+# Ignore build.xml file
+build.xml
+
