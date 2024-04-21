@@ -13,8 +13,17 @@ This project is a Personal Finance Management System developed using Java Swing 
 
 ## Features
 
-- Track income and expenses
-- Calculate savings
-- Visualize financial data through charts
+- **Account Management**: Users can create and manage multiple accounts to suit their financial needs.
+  
+- **Summarized Display**: Provides users with a clear overview of their financial status, including current savings and spending habits.
+  
+- **Income and Expense Tracking**: Dedicated tabs allow users to conveniently record their income and expenses, facilitating efficient management of finances.
+  
+- **Interactive Charts**: Visualize monthly expenditure and savings through interactive charts, offering users insightful graphical representations of their financial data.
+  
+- **Transaction History**: Easily access and review the latest transactions, enabling users to track their financial activity over time.
+  
+- **Savings Target**: Set savings targets with a progress bar indicating the progress towards the goal for the current month, empowering users to stay focused on their financial objectives.
 
-## Setup
+
+
