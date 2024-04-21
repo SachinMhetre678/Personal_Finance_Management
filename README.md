@@ -2,7 +2,8 @@
 
 ## Overview
 
-This is a Personal Finance Management System application developed using Java Swing on Apache NetBeans IDE and MySQL for DataBase Management. The system allows users to track their financial habits and visualize their financial data through charts generated using XChart library.
+This is a Personal Finance Management System application developed using Java Swing on Apache NetBeans IDE and MySQL for DataBase Management.
+The system allows users to track their financial habits, previous transactions and visualise their monthly financial data using chart.
 
 
 ## Software Used
