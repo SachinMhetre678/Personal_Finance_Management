@@ -1405,9 +1405,10 @@ public class HomePage extends javax.swing.JFrame {
             try {
                 DatabaseManager.connect();
 
-                String checkQuery = "SELECT * FROM account WHERE account_type = ?";
+                String checkQuery = "SELECT * FROM account WHERE account_type = ? and user_id = ?";
                 PreparedStatement checkStmt = DatabaseManager.getConnection().prepareStatement(checkQuery);
                 checkStmt.setString(1, accountName);
+                checkStmt.setInt(2, UserSession.userId);
 
                 ResultSet resultSet = checkStmt.executeQuery();
                 if (resultSet.next()) {
@@ -1483,9 +1484,10 @@ public class HomePage extends javax.swing.JFrame {
 
                     DatabaseManager.connect();
 
-                    String accountQuery = "SELECT account_id, balance, liabilities FROM account WHERE account_type = ?";
+                    String accountQuery = "SELECT account_id, balance, liabilities FROM account WHERE account_type = ? and user_id = ?";
                     PreparedStatement accountStmt = DatabaseManager.getConnection().prepareStatement(accountQuery);
                     accountStmt.setString(1, expenseAccountName.getSelectedItem().toString());
+                    accountStmt.setInt(2, UserSession.userId);
                     ResultSet accountResult = accountStmt.executeQuery();
 
                     if (accountResult.next()) {
@@ -1584,9 +1586,10 @@ public class HomePage extends javax.swing.JFrame {
                     DatabaseManager.connect();
 
                     // Retrieve the accountId based on the account name
-                    String accountQuery = "SELECT account_id, balance FROM account WHERE account_type = ?";
+                    String accountQuery = "SELECT account_id, balance FROM account WHERE account_type = ? and user_id = ?";
                     PreparedStatement accountStmt = DatabaseManager.getConnection().prepareStatement(accountQuery);
                     accountStmt.setString(1, incomeAccountName.getSelectedItem().toString());
+                    accountStmt.setInt(2, UserSession.userId);
                     ResultSet accountResult = accountStmt.executeQuery();
 
                     // Check if the account exists
@@ -1800,7 +1803,7 @@ public class HomePage extends javax.swing.JFrame {
             String query = "SELECT i.income_date, i.income_source, i.amount, a.account_type " +
                     "FROM income i " +
                     "INNER JOIN account a ON i.account_id = a.account_id " +
-                    "WHERE i.user_id = ?";
+                    "WHERE i.user_id = ? order by i.income_date desc";
             PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
             pstmt.setInt(1, UserSession.userId); // Assuming userId is accessible from UserSession
 
@@ -1833,7 +1836,7 @@ public class HomePage extends javax.swing.JFrame {
             String query = "SELECT e.expense_date, e.expense_category, e.amount, e.remark, a.account_type " +
                     "FROM expense e " +
                     "INNER JOIN account a ON e.account_id = a.account_id " +
-                    "WHERE e.user_id = ?";
+                    "WHERE e.user_id = ? order by e.expense_date desc";
             PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
             pstmt.setInt(1, UserSession.userId); // Assuming userId is accessible from UserSession
 
@@ -1861,52 +1864,56 @@ public class HomePage extends javax.swing.JFrame {
     
     private void populate_home_page(){
     try {
-        // Prepare the SQL statement to retrieve home page data for the current user
-        String selectQuery = "SELECT "
-                            + "COALESCE(SUM(a.balance), 0) AS total_balance, "
-                            + "COALESCE(SUM(a.liabilities), 0) AS total_liabilities, "
-                            + "COALESCE(SUM(i.amount), 0) AS total_income, "
-                            + "COALESCE(SUM(e.amount), 0) AS total_expense "
-                            + "FROM account a "
-                            + "LEFT JOIN income i ON i.account_id = a.account_id "
-                            + "LEFT JOIN expense e ON e.account_id = a.account_id "
-                            + "WHERE "
-                            + "a.user_id = ? "
-                            + "AND MONTH(NOW()) = MONTH(COALESCE(i.income_date, NOW())) "
-                            + "AND YEAR(NOW()) = YEAR(COALESCE(i.income_date, NOW())) "
-                            + "AND MONTH(NOW()) = MONTH(COALESCE(e.expense_date, NOW())) "
-                            + "AND YEAR(NOW()) = YEAR(COALESCE(e.expense_date, NOW()))";
-        PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(selectQuery);
+        // Prepare the SQL statements to retrieve data for the current user
+        String balanceQuery = "SELECT COALESCE(SUM(balance), 0) AS total_balance FROM account WHERE user_id = ?";
+        String liabilitiesQuery = "SELECT COALESCE(SUM(liabilities), 0) AS total_liabilities FROM account WHERE user_id = ?";
+        String incomeQuery = "SELECT COALESCE(SUM(amount), 0) AS total_income FROM income WHERE user_id = ? AND MONTH(income_date) = MONTH(NOW()) AND YEAR(income_date) = YEAR(NOW())";
+        String expenseQuery = "SELECT COALESCE(SUM(amount), 0) AS total_expense FROM expense WHERE user_id = ? AND MONTH(expense_date) = MONTH(NOW()) AND YEAR(expense_date) = YEAR(NOW())";
 
-        // Set the user_id parameter
-        pstmt.setInt(1, UserSession.userId);
+        // Execute the queries for balance, liabilities, income, and expense
+        PreparedStatement balanceStmt = DatabaseManager.getConnection().prepareStatement(balanceQuery);
+        balanceStmt.setInt(1, UserSession.userId);
+        ResultSet balanceRs = balanceStmt.executeQuery();
 
-        // Execute the query
-        ResultSet rs = pstmt.executeQuery();
+        PreparedStatement liabilitiesStmt = DatabaseManager.getConnection().prepareStatement(liabilitiesQuery);
+        liabilitiesStmt.setInt(1, UserSession.userId);
+        ResultSet liabilitiesRs = liabilitiesStmt.executeQuery();
 
-        // Check if the query returned any results
-        if(rs.next()) {
-            double totalBalance = rs.getDouble("total_balance");
-            double totalLiabilities = rs.getDouble("total_liabilities");
-            double totalIncome = rs.getDouble("total_income");
-            double totalExpense = rs.getDouble("total_expense");
-            
-            // Now you can use totalBalance, totalLiabilities, totalIncome, and totalExpense to populate your home page UI components
-            // For example:
-            balanceLabel.setText(String.valueOf(totalBalance));
-            liabilitiesLabel.setText(String.valueOf(totalLiabilities));
-            incomeLabel.setText(String.valueOf(totalIncome));
-            expenseLabel.setText(String.valueOf(totalExpense));
-        }
+        PreparedStatement incomeStmt = DatabaseManager.getConnection().prepareStatement(incomeQuery);
+        incomeStmt.setInt(1, UserSession.userId);
+        ResultSet incomeRs = incomeStmt.executeQuery();
 
-        // Close the result set, statement, and connection
-        rs.close();
-        pstmt.close();
+        PreparedStatement expenseStmt = DatabaseManager.getConnection().prepareStatement(expenseQuery);
+        expenseStmt.setInt(1, UserSession.userId);
+        ResultSet expenseRs = expenseStmt.executeQuery();
+
+        // Get the values from the result sets
+        double totalBalance = balanceRs.next() ? balanceRs.getDouble("total_balance") : 0;
+        double totalLiabilities = liabilitiesRs.next() ? liabilitiesRs.getDouble("total_liabilities") : 0;
+        double totalIncome = incomeRs.next() ? incomeRs.getDouble("total_income") : 0;
+        double totalExpense = expenseRs.next() ? expenseRs.getDouble("total_expense") : 0;
+
+        // Populate the home page UI components
+        balanceLabel.setText(String.valueOf(totalBalance));
+        liabilitiesLabel.setText(String.valueOf(totalLiabilities));
+        incomeLabel.setText(String.valueOf(totalIncome));
+        expenseLabel.setText(String.valueOf(totalExpense));
+
+        // Close result sets and statements
+        balanceRs.close();
+        balanceStmt.close();
+        liabilitiesRs.close();
+        liabilitiesStmt.close();
+        incomeRs.close();
+        incomeStmt.close();
+        expenseRs.close();
+        expenseStmt.close();
     } catch (SQLException ex) {
         // Handle any SQL errors
         ex.printStackTrace();
     }
 }
+
     
     private void populate_transactions() {
     DefaultTableModel model = (DefaultTableModel) transactionTable.getModel();
@@ -1977,7 +1984,7 @@ private void populate_budget() {
     model.setRowCount(0); // Clear previous data from the table
 
     try {
-        String query = "SELECT expense_category, amount FROM budget WHERE user_id = ?";
+        String query = "SELECT expense_category, amount FROM budget WHERE user_id = ? order by expense_category";
         PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
         pstmt.setInt(1, UserSession.userId); // Assuming userId is accessible from UserSession
 
@@ -2003,24 +2010,42 @@ private void populate_budget() {
 
 public void updateProgressBar() {
     try {
-        // Calculate this month's saved money
-        String savedMoneyQuery = "SELECT COALESCE(SUM(i.amount), 0) - COALESCE(SUM(e.amount), 0) AS saved_money " +
-                                 "FROM income i LEFT JOIN expense e " +
-                                 "ON i.user_id = e.user_id " +
-                                 "WHERE MONTH(i.income_date) = MONTH(CURRENT_DATE()) AND YEAR(i.income_date) = YEAR(CURRENT_DATE()) AND i.user_id = ?";
-        PreparedStatement savedMoneyStmt = DatabaseManager.getConnection().prepareStatement(savedMoneyQuery);
-        savedMoneyStmt.setInt(1, UserSession.userId);
-        ResultSet savedMoneyResult = savedMoneyStmt.executeQuery();
+        // Get total income for this month
+        String incomeQuery = "SELECT COALESCE(SUM(amount), 0) AS total_income " +
+                             "FROM income " +
+                             "WHERE user_id = ? " +
+                             "AND MONTH(income_date) = MONTH(CURRENT_DATE()) " +
+                             "AND YEAR(income_date) = YEAR(CURRENT_DATE())";
+        PreparedStatement incomeStmt = DatabaseManager.getConnection().prepareStatement(incomeQuery);
+        incomeStmt.setInt(1, UserSession.userId);
+        ResultSet incomeResult = incomeStmt.executeQuery();
 
-        double savedMoney = 0;
-        if (savedMoneyResult.next()) {
-            savedMoney = savedMoneyResult.getDouble("saved_money");
+        double totalIncome = 0;
+        if (incomeResult.next()) {
+            totalIncome = incomeResult.getDouble("total_income");
         }
+
+        // Get total expense for this month
+        String expenseQuery = "SELECT COALESCE(SUM(amount), 0) AS total_expense " +
+                              "FROM expense " +
+                              "WHERE user_id = ? " +
+                              "AND MONTH(expense_date) = MONTH(CURRENT_DATE()) " +
+                              "AND YEAR(expense_date) = YEAR(CURRENT_DATE())";
+        PreparedStatement expenseStmt = DatabaseManager.getConnection().prepareStatement(expenseQuery);
+        expenseStmt.setInt(1, UserSession.userId);
+        ResultSet expenseResult = expenseStmt.executeQuery();
+
+        double totalExpense = 0;
+        if (expenseResult.next()) {
+            totalExpense = expenseResult.getDouble("total_expense");
+        }
+
+        // Calculate saved money
+        double savedMoney = totalIncome - totalExpense;
 
         // Get target amount for this month
         String targetAmountQuery = "SELECT amount FROM target_amount " +
-                            "WHERE user_id = ? ";
-
+                                   "WHERE user_id = ?";
         PreparedStatement targetAmountStmt = DatabaseManager.getConnection().prepareStatement(targetAmountQuery);
         targetAmountStmt.setInt(1, UserSession.userId);
         ResultSet targetAmountResult = targetAmountStmt.executeQuery();
@@ -2039,11 +2064,20 @@ public void updateProgressBar() {
         // Update progress bar
         int progress = (int) Math.round(percentage);
         jProgressBar1.setValue(progress);
-        progressLabel.setText(savedMoney+"/"+targetAmount);
+        progressLabel.setText(savedMoney + "/" + targetAmount);
+        
+        // Close result sets and statements
+        incomeResult.close();
+        incomeStmt.close();
+        expenseResult.close();
+        expenseStmt.close();
+        targetAmountResult.close();
+        targetAmountStmt.close();
     } catch (SQLException ex) {
         ex.printStackTrace(); // Handle SQL exception
     }
 }
+
 
 
 
