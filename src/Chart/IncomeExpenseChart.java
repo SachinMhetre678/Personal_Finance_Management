@@ -15,16 +15,17 @@ public class IncomeExpenseChart {
 
     // Array of month names in chronological order
     private static final String[] MONTHS = {
-        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+            "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+            "November", "December"
     };
 
     public static Map<String, Integer> getMonthlyIncome() throws SQLException {
         Map<String, Integer> monthlyIncome = new TreeMap<>();
         DatabaseManager.connect();
         String query = "SELECT monthname(income_date) AS month, SUM(amount) AS income " +
-               "FROM income " +
-               "WHERE user_id = ? " +
-               "GROUP BY month";
+                "FROM income " +
+                "WHERE user_id = ? " +
+                "GROUP BY month";
         try (PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query)) {
             pstmt.setInt(1, UserSession.userId);
             ResultSet rs = pstmt.executeQuery();
@@ -45,9 +46,9 @@ public class IncomeExpenseChart {
         Map<String, Integer> monthlyExpenses = new TreeMap<>();
         DatabaseManager.connect();
         String query = "SELECT monthname(expense_date) AS month, SUM(amount) AS expense " +
-               "FROM expense " +
-               "WHERE user_id = ? " +
-               "GROUP BY month";
+                "FROM expense " +
+                "WHERE user_id = ? " +
+                "GROUP BY month";
         try (PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query)) {
             pstmt.setInt(1, UserSession.userId);
             ResultSet rs = pstmt.executeQuery();
@@ -78,7 +79,8 @@ public class IncomeExpenseChart {
 
             // Add income and expense series to the chart
             chart.addSeries("Income", new ArrayList<>(monthlyIncome.keySet()), new ArrayList<>(monthlyIncome.values()));
-            chart.addSeries("Expenses", new ArrayList<>(monthlyExpenses.keySet()), new ArrayList<>(monthlyExpenses.values()));
+            chart.addSeries("Expenses", new ArrayList<>(monthlyExpenses.keySet()),
+                    new ArrayList<>(monthlyExpenses.values()));
 
             SwingWrapper<CategoryChart> wrapper = new SwingWrapper<>(chart);
             JFrame frame = wrapper.displayChart();
