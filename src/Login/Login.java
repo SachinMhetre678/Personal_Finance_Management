@@ -199,6 +199,11 @@ public class Login extends javax.swing.JFrame {
         //login code
         var user_id = username.getText();
         var pass = password.getText();
+        
+        if (user_id.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill in both username and password fields.");
+            return;
+        }
     
         try {
             DatabaseManager.connect();

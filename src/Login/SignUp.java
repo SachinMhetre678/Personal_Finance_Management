@@ -212,31 +212,56 @@ public class SignUp extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
-            DatabaseManager.connect();
+        DatabaseManager.connect();
 
         // Assuming name, username, and password are JTextField or similar components
-            String name1 = name.getText();
-            String username1 = username.getText();
-            String password1 = password.getText();
+        String name1 = name.getText();
+        String username1 = username.getText();
+        String password1 = password.getText();
 
-            String query = "INSERT INTO user(name, username, password) VALUES (?, ?, ?)";
-            PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
-            pstmt.setString(1, name1);
-            pstmt.setString(2, username1);
-            pstmt.setString(3, password1);
+        // Check if any of the fields are empty
+        if (name1.isEmpty() || username1.isEmpty() || password1.isEmpty()) {
+            String errorMessage = "Please fill in the following field(s):";
+            if (name1.isEmpty()) errorMessage += "\n- Name";
+            if (username1.isEmpty()) errorMessage += "\n- Username";
+            if (password1.isEmpty()) errorMessage += "\n- Password";
+            JOptionPane.showMessageDialog(null, errorMessage);
+            return;
+        }
 
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
+        // Check if the username already exists in the database
+        String query = "SELECT * FROM user WHERE username = ?";
+        PreparedStatement pstmt = DatabaseManager.getConnection().prepareStatement(query);
+        pstmt.setString(1, username1);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            JOptionPane.showMessageDialog(null, "Username already exists. Please choose another one.");
+            return;
+        }
+
+        // If username doesn't exist, proceed with insertion
+        query = "INSERT INTO user(name, username, password) VALUES (?, ?, ?)";
+        pstmt = DatabaseManager.getConnection().prepareStatement(query);
+        pstmt.setString(1, name1);
+        pstmt.setString(2, username1);
+        pstmt.setString(3, password1);
+
+        int rowsInserted = pstmt.executeUpdate();
+        if (rowsInserted > 0) {
             // Insertion successful
             name.setText("");
             username.setText("");
             password.setText("");
             JOptionPane.showMessageDialog(null, "Account successfully created!");
-            }
-        } catch (SQLException ex) {
-        // Handle exceptions
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error occurred while creating account: " + ex.getMessage());
+        }
+    } catch (SQLException ex) {
+        // Handle SQL exceptions
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error occurred while creating account: " + ex.getMessage());
+    } catch (Exception ex) {
+        // Handle other exceptions
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "An unexpected error occurred: " + ex.getMessage());
     }
 
     }//GEN-LAST:event_jButton1ActionPerformed
